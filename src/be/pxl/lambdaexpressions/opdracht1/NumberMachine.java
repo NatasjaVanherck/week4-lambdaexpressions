@@ -1,7 +1,6 @@
 package be.pxl.lambdaexpressions.opdracht1;
 
 import java.util.ArrayList;
-import java.util.function.Function;
 
 public class NumberMachine {
 	private ArrayList<Integer> numbers = new ArrayList<>();
@@ -16,8 +15,16 @@ public class NumberMachine {
 		for(int i=0;i<numbers.size();i++) {
 			if(filter.check(numbers.get(i))) {
 				result += numbers.get(i);
+				if(!(i == numbers.size()-1)){
+					result += "-";
+				}
 			}
 		}
 		return result;
 	}
+
+	public ArrayList<Integer> getNumbers() {
+		return numbers;
+	}
+	
 }
