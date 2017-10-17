@@ -1,7 +1,5 @@
 package be.pxl.lambdaexpressions.opdracht1;
 
-import java.util.ArrayList;
-
 public class NumberSelector {
 	private NumberMachine machine;
 	
@@ -33,21 +31,15 @@ public class NumberSelector {
 	}
 	
 	public String printHexNumbers(){
-		String result = "";
-		ArrayList<Integer> numbers = machine.getNumbers();
-		
-		for(int i=0;i<numbers.size();i++) {
-				result += convertNumbers(numbers.get(i));
-				if(!(i == numbers.size()-1)){
-					result += "-";
-				}
+	    String result = "";
+	    int counter = 0;
+		for(Integer i : machine.getNumbers()) {
+			result += machine.convertNumbers(String -> Integer.toHexString(i));
+			if(!(counter == machine.getNumbers().size()-1)){
+				result += "-";
 			}
-		return result;
-	}
-	
-	public String convertNumbers(int number){
-		Converter hexString = s -> Integer.toHexString(number);
-		return hexString.toString();
-		//return Integer.toHexString(number);
+			counter++;
+		}
+		return result;		
 	}
 }
