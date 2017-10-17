@@ -31,15 +31,7 @@ public class NumberSelector {
 	}
 	
 	public String printHexNumbers(){
-	    String result = "";
-	    int counter = 0;
-		for(Integer i : machine.getNumbers()) {
-			result += machine.convertNumbers(String -> Integer.toHexString(i));
-			if(!(counter == machine.getNumbers().size()-1)){
-				result += "-";
-			}
-			counter++;
-		}
-		return result;		
+		//Integer => String(Integer)
+		return machine.convertNumbers(n -> Integer.toHexString(n));
 	}
 }
