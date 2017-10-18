@@ -17,6 +17,13 @@ public class GameCollection {
 				videoGameFilter.add(videoGameCollection.get(i));
 			} else if (filter.test(String.valueOf(videoGameCollection.get(i).getPrice()))){
 				videoGameFilter.add(videoGameCollection.get(i));
+			} else {
+				for(int j = 0; j < videoGameCollection.get(i).getGenres().size(); j++){
+					if (filter.test(videoGameCollection.get(i).getGenres().get(j))){
+						videoGameFilter.add(videoGameCollection.get(i));
+						j = videoGameCollection.get(i).getGenres().size();
+					}
+				}
 			}
 		}	
 		return videoGameFilter;

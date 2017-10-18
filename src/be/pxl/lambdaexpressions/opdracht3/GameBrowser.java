@@ -31,4 +31,10 @@ public class GameBrowser {
 		collectionFilter = collection.selectGames(string -> string.equals("0.0"));	
 		return collectionFilter;
 	}
+	
+	public ArrayList<VideoGame> showGamesInGenre(String genre){
+		ArrayList<VideoGame> collectionFilter;
+		collectionFilter = collection.selectGames(string -> string.equals(genre));	
+		return collectionFilter;
+	}
 }
