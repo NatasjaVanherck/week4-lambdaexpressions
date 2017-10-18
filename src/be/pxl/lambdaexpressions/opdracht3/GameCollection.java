@@ -15,6 +15,8 @@ public class GameCollection {
 		for(int i = 0; i < videoGameCollection.size(); i++){
 			if(filter.test(videoGameCollection.get(i).getName())){
 				videoGameFilter.add(videoGameCollection.get(i));
+			} else if (filter.test(String.valueOf(videoGameCollection.get(i).getPrice()))){
+				videoGameFilter.add(videoGameCollection.get(i));
 			}
 		}	
 		return videoGameFilter;

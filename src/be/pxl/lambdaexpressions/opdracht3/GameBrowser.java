@@ -25,4 +25,10 @@ public class GameBrowser {
 		collectionFilter = collection.selectGames(filter);		
 		return collectionFilter;
 	}
+	
+	public ArrayList<VideoGame> showFreeGames(){
+		ArrayList<VideoGame> collectionFilter;
+		collectionFilter = collection.selectGames(string -> string.equals("0.0"));	
+		return collectionFilter;
+	}
 }
