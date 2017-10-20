@@ -10,23 +10,14 @@ public class NumberSelector {
 	public String showEvenNumbers(){	
 		NumberFilter filter = new NumberFilter(){
 			public boolean check(int number) {
-				if(number%2 == 0){
-					return true;
-				} else
-					return false;
-				}		
-		};		
+				return (number%2 == 0);	
+		    }
+		};
 		return machine.processNumbers(filter);
 	}
 	
 	public String showNumbersAbove(int number){
-		NumberFilter filter = s -> {
-			if (number < s){
-				return true;
-			} else {
-				return false;
-			}
-		};
+		NumberFilter filter = s -> (number < s);
 		return machine.processNumbers(filter);
 	}
 	
