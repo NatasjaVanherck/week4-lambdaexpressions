@@ -10,20 +10,11 @@ public class GameCollection {
 		videoGameCollection.add(game);
 	}
 	
-	public ArrayList<VideoGame> selectGames(Predicate<String> filter){
+	public ArrayList<VideoGame> selectGames(Predicate<VideoGame> filter){
 		ArrayList<VideoGame> videoGameFilter = new ArrayList<VideoGame>();
 		for(int i = 0; i < videoGameCollection.size(); i++){
-			if(filter.test(videoGameCollection.get(i).getName())){
+			if(filter.test(videoGameCollection.get(i))){
 				videoGameFilter.add(videoGameCollection.get(i));
-			} else if (filter.test(String.valueOf(videoGameCollection.get(i).getPrice()))){
-				videoGameFilter.add(videoGameCollection.get(i));
-			} else {
-				for(int j = 0; j < videoGameCollection.get(i).getGenres().size(); j++){
-					if (filter.test(videoGameCollection.get(i).getGenres().get(j))){
-						videoGameFilter.add(videoGameCollection.get(i));
-						j = videoGameCollection.get(i).getGenres().size();
-					}
-				}
 			}
 		}	
 		return videoGameFilter;
